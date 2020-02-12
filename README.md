@@ -25,6 +25,10 @@ npm run start:dev
 ```
 
 This command uses nodemon and will watch your files to restart the server if any modification is made.
+Don't forget : npm install !!
+
+API used : [POKEAPI](https://pokeapi.co/) 
+
 
 #Important links
 

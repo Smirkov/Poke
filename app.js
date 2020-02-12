@@ -9,8 +9,8 @@ const logger = require('morgan');
 const createSwaggerUiMiddleware = require('@coorpacademy/swagger-ui-express');
 const database = require('./src/database');
 
-// TODO: require here your routes files
-const usersRouter = require('./routes/users');
+// Routes files
+const pokemonRouter = require('./routes/pokemon');
 
 const app = express();
 
@@ -42,8 +42,8 @@ app.use(function(req, res, next) {
 	next();	// On any middleware, next should be called to avoid the timeout error and go to the next middleware!
 });
 
-// TODO: Add here your routes
-app.use('/users', usersRouter);
+// Routes
+app.use('/', pokemonRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

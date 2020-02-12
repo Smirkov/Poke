@@ -1,31 +1,134 @@
 openapi: 3.0.0
 info:
-  description: "API template"
-  version: "0.0.0"
-  title: "API template"
+  title: "API of mysterious Pokemon"
+  description: "An API allowing to obtain information on pokemons and the berries they can eat."
+  version: "1.0"
+
 servers:
-  - url: 'http://localhost:3000/'
+  - url: "http://localhost:3000/"
+  - url: 'https://joan-jomaora.herokuapp.com/ ?????? TODO'    #TODO
+
+components:
+  schemas:
+    Pokemon:    #TODO
+      type: object
+      properties:
+        flightNumber:
+          type: string
+
+    Berrie:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        growth_time:
+          type: integer
+        max_harvest:
+          type: integer
+        natural_gift_power:
+          type: integer
+        size:
+          type: integer
+        smoothness:
+          type: integer
+        soil_dryness:
+          type: integer
+        firmness:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+        flavors:              #Manque un étage ici
+          type: array
+          items:
+            type: object
+            properties:
+              potency:
+                type: integer
+              flavor:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    url:
+                      type: string
+        item:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+        natural_gift_type:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+
+        
+
 paths:
-  /users:
+  /pokemon:
     get:
       tags:
-        - "users"
-      summary: "It should send a list of users"
-  /example/{pathParam}:
-    get:
-      tags:
-        - "resource"
+        - "pokemon"
+      summary: "Informations for specific pokemon"
       parameters:
-        - name: pathParam
-          in: path
-          description: A variable value passed on the path part of the URL
-          required: true
+        - in: query
+          name: pokemon
+          description: Enter the name.
           schema:
             type: string
-          example: value1
-        - name: filter
-          in: query
+          example: pikachu
+      responses:
+        "200":
+          description: JSON array
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pokemon"
+              properties:
+                name:
+                  type: string
+        "400":
+          description: Pokemon name is missing.
+        "404":
+          description: This pokemon don't exist.
+
+  /berry:
+    get:
+      tags:
+        - "berry"
+      summary: "Informations for specific berry."
+      parameters:
+        - in: query
+          name: berry
+          description: Enter the name.
           schema:
             type: string
-          description: A variable value passed on the querystring part of the URL
-      summary: "This is an example to show you a definition of an endpoint"
+          example: cheri
+      responses:
+        "200":
+          description: JSON array
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Berrie"
+        "400":
+          description: Berry name is missing.
+        "404":
+          description: This berry don't exist.
