@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: "API of mysterious Pokemon"
-  description: "An API allowing to obtain information on pokemons and the berries they can eat."
+  title: "API of mysterious berries and machines"
+  description: "An API allowing to obtain information on machines and the berries's pokemon."
   version: "1.0"
 
 servers:
@@ -10,56 +10,11 @@ servers:
 
 components:
   schemas:
-    Pokemon:    #TODO
-      type: object
-      properties:
-        flightNumber:
-          type: string
-
-    Berrie:
+    Machine:
       type: object
       properties:
         id:
           type: integer
-        name:
-          type: string
-        growth_time:
-          type: integer
-        max_harvest:
-          type: integer
-        natural_gift_power:
-          type: integer
-        size:
-          type: integer
-        smoothness:
-          type: integer
-        soil_dryness:
-          type: integer
-        firmness:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              url:
-                type: string
-        flavors:              #Manque un étage ici
-          type: array
-          items:
-            type: object
-            properties:
-              potency:
-                type: integer
-              flavor:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    url:
-                      type: string
         item:
           type: array
           items:
@@ -69,7 +24,16 @@ components:
                 type: string
               url:
                 type: string
-        natural_gift_type:
+        move:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+        version_group:
           type: array
           items:
             type: object
@@ -79,35 +43,102 @@ components:
               url:
                 type: string
 
-        
+    Berrie:
+      type: object
+      properties:
+        firmness:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+        flavors: 
+          type: array
+          items:
+            type: object
+            properties:
+              flavor:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    url:
+                      type: string
+              potency:
+                type: integer
+        growth_time:
+          type: integer
+        id:
+          type: integer
+        item:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+        max_harvest:
+          type: integer
+        name:
+          type: string
+        natural_gift_power:
+          type: integer
+        natural_gift_type:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+        size:
+          type: integer
+        smoothness:
+          type: integer
+        soil_dryness:
+          type: integer
 
 paths:
-  /pokemon:
+  /machine:
     get:
       tags:
-        - "pokemon"
-      summary: "Informations for specific pokemon"
+        - "machine"
+      summary: "Informations for specific machine"
       parameters:
         - in: query
-          name: pokemon
-          description: Enter the name.
+          name: machine
+          description: Machine name or ID.
           schema:
             type: string
-          example: pikachu
+          example: 1
       responses:
         "200":
-          description: JSON array
+          description: Result found.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pokemon"
+                $ref: "#/components/schemas/Machine"
+              properties:
+                name:
+                  type: string
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/Machine"
               properties:
                 name:
                   type: string
         "400":
-          description: Pokemon name is missing.
+          description: Machine name or ID is missing.
         "404":
-          description: This pokemon don't exist.
+          description: This machine doesn't exist.
 
   /berry:
     get:
@@ -117,18 +148,18 @@ paths:
       parameters:
         - in: query
           name: berry
-          description: Enter the name.
+          description: Berry name or ID.
           schema:
             type: string
           example: cheri
       responses:
         "200":
-          description: JSON array
+          description: Result found.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Berrie"
         "400":
-          description: Berry name is missing.
+          description: Berry name or ID is missing.
         "404":
-          description: This berry don't exist.
+          description: This berry doesn't exist.

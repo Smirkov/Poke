@@ -18,10 +18,10 @@ npm init
 
 #Development
 
-To develop in local environment, please use the command
+To look in local environment, please use the command
 
 ```
-npm run start:dev
+npm start
 ```
 
 This command uses nodemon and will watch your files to restart the server if any modification is made.
