@@ -17,10 +17,7 @@ Be sure to use the server "https://pokeapilpdw.herokuapp.com/".
 
 ## Online launcher
 
-Go to the website Heroku to launch online :
-```
-[https://pokeapilpdw.herokuapp.com/explorer](https://pokeapilpdw.herokuapp.com/explorer)
-```
+Go to the website Heroku to launch online : https://pokeapilpdw.herokuapp.com/explorer
 
 Be sure to use the server "https://pokeapilpdw.herokuapp.com/".
 
