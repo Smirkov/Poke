@@ -6,7 +6,7 @@ info:
 
 servers:
   - url: "http://localhost:3000/"
-  - url: 'https://joan-jomaora.herokuapp.com/ ?????? TODO'    #TODO
+  - url: "https://pokeapilpdw.herokuapp.com/"
 
 components:
   schemas:
@@ -55,7 +55,7 @@ components:
                 type: string
               url:
                 type: string
-        flavors: 
+        flavors:
           type: array
           items:
             type: object
@@ -115,7 +115,7 @@ paths:
       parameters:
         - in: query
           name: machine
-          description: Machine name or ID.
+          description: Machine ID.
           schema:
             type: string
           example: 1
@@ -136,9 +136,9 @@ paths:
                 name:
                   type: string
         "400":
-          description: Machine name or ID is missing.
+          description: Machine ID is missing.
         "404":
-          description: This machine doesn't exist.
+          description: This machine ID doesn't exist.
 
   /berry:
     get:

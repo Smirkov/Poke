@@ -1,45 +1,26 @@
-EXPRESS SWAGGER TEMPLATE
+POKEMON EXPRESS SWAGGER
 
-#Install
+#Local installation
 
-1. Requirements
-
-Please verify that you have a node v8 version. If you're using nvm, just make
-
+1. Use the command to install all the necessary packages : 
 ```
-nvm use
+npm install
 ```
 
-2. Install dependencies 
-
-```
-npm init
-```
-
-#Development
-
-To look in local environment, please use the command
-
+2. Start the swagger locally to access swagger at http://localhost:3000/explorer/ : 
 ```
 npm start
 ```
 
-This command uses nodemon and will watch your files to restart the server if any modification is made.
-Don't forget : npm install !!
+#Online launcher
 
-API used : [POKEAPI](https://pokeapi.co/) 
+Go to the website Heroku to launch online :
+```
+https://pokeapilpdw.herokuapp.com/
+```
 
+#PROJECT
 
-#Important links
+Thanks to our swagger you can get the information of the various edible berries, as well as the machines that the pokemons can learn.
 
-[(OPEN API 3.0) Swagger specification](https://swagger.io/specification/#specification)
-
-[Express](http://expressjs.com/fr/4x/api.html)
-
-[Querying a BDD with Sequelize](https://sequelize.readthedocs.io/en/v3/docs/querying/)
-
-[Mapping tables with Sequelize](https://sequelize.readthedocs.io/en/v3/docs/models-definition/)
-
-[Make database operation with Sequelize](https://sequelize.readthedocs.io/en/v3/docs/models-usage/)
-
-[Templating EJS](https://ejs.co/)
+Information are obtained from the [POKEAPI](https://pokeapi.co/)
