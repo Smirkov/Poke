@@ -3,12 +3,14 @@
 ## Local installation
 
 1. Use the command to install all the necessary packages : 
+```
 npm install
-
+```
 
 2. Start the swagger locally to access swagger at http://localhost:3000/explorer/ : 
+```
 npm start
-
+```
 
 Be sure to use the server "https://pokeapilpdw.herokuapp.com/".
 
